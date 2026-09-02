@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>طاها ایکس اس | Taha XS Streamer</title>
+    <link rel="preload" href="https://img.icons8.com/3d-fluency/94/banana.png" as="image" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.rtl.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <style>
+        @font-face {
+            font-family: 'Gowardo';
+            src: url('Gowardo.woff2') format('woff2');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+        :root {
+            --primary-yellow: #ffcc00;
+            --accent-gold: #ff9900;
+            --bg-dark: #0d0d11;
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 204, 0, 0.2);
+            --glass-blur: blur(16px);
+        }
+        * {
+            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><circle cx="16" cy="16" r="6" fill="%23ffcc00" opacity="0.8"/><circle cx="16" cy="16" r="10" fill="none" stroke="%23ff9900" stroke-width="2"/><circle cx="16" cy="16" r="2" fill="%23ffffff"/></svg>') 16 16, auto;
+        }
+        a, button, .btn, .nav-link, iframe {
+            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><circle cx="16" cy="16" r="8" fill="%23ff9900"/><circle cx="16" cy="16" r="14" fill="none" stroke="%23ffcc00" stroke-width="2" stroke-dasharray="4,2"/><circle cx="16" cy="16" r="3" fill="%23ffffff"/></svg>') 16 16, pointer !important;
+        }
+        body {
+            font-family: 'Gowardo', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+            background-color: var(--bg-dark);
+            color: #ffffff;
+            overflow-x: hidden;
+            background-image: radial-gradient(circle at 10% 20%, rgba(255, 204, 0, 0.08) 0%, transparent 40%), radial-gradient(circle at 90% 80%, rgba(255, 153, 0, 0.08) 0%, transparent 40%);
+            background-attachment: fixed;
+        }
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: #08080a; }
+        ::-webkit-scrollbar-thumb { background: linear-gradient(180deg, var(--primary-yellow), var(--accent-gold)); border-radius: 5px; box-shadow: 0 0 10px rgba(255, 204, 0, 0.5); }
+        ::-webkit-scrollbar-thumb:hover { background: #ffe066; }
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+        .text-gradient {
+            background: linear-gradient(135deg, var(--primary-yellow), #ffffff, var(--accent-gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .floating-banana {
+            animation: floatBanana 4s ease-in-out infinite;
+            filter: drop-shadow(0 10px 15px rgba(255, 204, 0, 0.3));
+            content-visibility: auto;
+        }
+        @keyframes floatBanana {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(10deg); }
+        }
+        header {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 1000px;
+            z-index: 1000;
+            padding: 12px 30px;
+        }
+        .nav-link {
+            color: #ddd !important;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+        .nav-link:hover {
+            color: var(--primary-yellow) !important;
+            text-shadow: 0 0 8px rgba(255, 204, 0, 0.6);
+        }
+        .hero-section {
+            min-height: 100vh;
+            padding-top: 140px;
+            display: flex;
+            align-items: center;
+        }
+        .avatar-box {
+            position: relative;
+            display: inline-block;
+        }
+        .avatar-box img {
+            width: 280px;
+            height: 280px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid var(--primary-yellow);
+            box-shadow: 0 0 30px rgba(255, 204, 0, 0.4);
+            animation: pulseGlow 3s infinite alternate;
+        }
+        @keyframes pulseGlow {
+            0% { box-shadow: 0 0 20px rgba(255, 204, 0, 0.3); }
+            100% { box-shadow: 0 0 50px rgba(255, 204, 0, 0.7); }
+        }
+        .news-card {
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+            transform-style: preserve-3d;
+            perspective: 800px;
+            background: var(--glass-bg);
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            padding: 1.5rem;
+            text-align: center;
+        }
+        .news-card:hover {
+            transform: rotateY(-4deg) rotateX(4deg) scale(1.02);
+            box-shadow: 0 20px 50px rgba(255, 204, 0, 0.25);
+            border-color: var(--primary-yellow);
+        }
+        .news-card .icon-wrapper {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+        .news-card .icon-wrapper svg {
+            width: 80px;
+            height: 80px;
+            fill: var(--primary-yellow);
+            filter: drop-shadow(0 0 12px rgba(255, 204, 0, 0.4));
+            transition: transform 0.4s;
+        }
+        .news-card:hover .icon-wrapper svg {
+            transform: scale(1.1) rotate(-6deg);
+        }
+        .news-card .card-title {
+            color: var(--primary-yellow);
+            font-weight: 700;
+            font-size: 1.4rem;
+        }
+        .news-card .card-text {
+            color: #ccc;
+            font-size: 1rem;
+        }
+        .news-card .badge {
+            margin-top: 0.5rem;
+        }
+        .donation-section {
+            position: relative;
+            overflow: hidden;
+        }
+        .donation-section .floating-arrows {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .floating-arrows svg {
+            position: absolute;
+            opacity: 0.3;
+            animation: floatArrowSpin 6s ease-in-out infinite;
+        }
+        .floating-arrows svg:nth-child(1) {
+            top: 15%;
+            left: 8%;
+            animation-delay: 0s;
+            width: 70px;
+            height: 70px;
+        }
+        .floating-arrows svg:nth-child(2) {
+            bottom: 20%;
+            right: 10%;
+            animation-delay: 2s;
+            width: 80px;
+            height: 80px;
+            transform: rotate(30deg);
+        }
+        @keyframes floatArrowSpin {
+            0% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-25px) rotate(180deg); }
+            100% { transform: translateY(0) rotate(360deg); }
+        }
+        .donation-btn {
+            background: linear-gradient(145deg, var(--primary-yellow), var(--accent-gold));
+            border: none;
+            color: #0d0d11;
+            font-weight: 800;
+            padding: 16px 48px;
+            border-radius: 60px;
+            font-size: 1.4rem;
+            transition: all 0.3s;
+            box-shadow: 0 0 30px rgba(255, 204, 0, 0.3);
+            position: relative;
+            z-index: 2;
+        }
+        .donation-btn:hover {
+            transform: scale(1.05) translateY(-4px);
+            box-shadow: 0 0 50px rgba(255, 204, 0, 0.6);
+            color: #0d0d11;
+        }
+        .schedule-icon {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            margin-bottom: 0.5rem;
+        }
+        .schedule-icon svg {
+            width: 100%;
+            height: 100%;
+            fill: var(--primary-yellow);
+            filter: drop-shadow(0 0 6px rgba(255, 204, 0, 0.4));
+            transition: transform 0.3s;
+        }
+        .schedule-card:hover .schedule-icon svg {
+            transform: scale(1.15) rotate(-6deg);
+        }
+        .h_iframe-aparat_embed_frame {
+            position: relative;
+        }
+        .h_iframe-aparat_embed_frame .ratio {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+        .h_iframe-aparat_embed_frame iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .setup-img-wrapper {
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px;
+        }
+        .setup-img-wrapper img {
+            transition: transform 0.5s ease;
+            width: 100%;
+        }
+        .setup-img-wrapper:hover img {
+            transform: scale(1.05);
+        }
+        footer {
+            margin-top: 100px;
+            margin-bottom: 30px;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="glass-card">
+        <div class="d-flex justify-content-between align-items-center">
+            <div class="d-flex align-items-center gap-2">
+                <img width="40" height="40" src="https://img.icons8.com/3d-fluency/94/banana.png" alt="banana" loading="eager" fetchpriority="high" />
+                <span class="fw-bold fs-4 text-gradient">TAHA XS</span>
+            </div>
+            <nav class="d-none d-md-flex gap-4">
+                <a href="#hero" class="nav-link">خانه</a>
+                <a href="#live" class="nav-link">لایو استریم</a>
+                <a href="#about" class="nav-link">درباره طاها</a>
+                <a href="#news" class="nav-link">اخبار</a>
+                <a href="#schedule" class="nav-link">برنامه پخش</a>
+                <a href="#videos" class="nav-link">ویدیوها</a>
+                <a href="#setup" class="nav-link">ستاپ</a>
+                <a href="#donation" class="nav-link">دونیت</a>
+            </nav>
+            <div>
+                <a href="#live" class="btn btn-warning fw-bold rounded-pill px-4" style="background: var(--primary-yellow);">پخش زنده</a>
+            </div>
+        </div>
+    </header>
+
+    <section id="hero" class="hero-section text-center">
+        <div class="container">
+            <div class="row justify-content-center align-items-center">
+                <div class="col-lg-8" data-aos="zoom-in" data-aos-duration="1000">
+                    <div class="avatar-box mb-4">
+                        <img src="TahaXs.png" alt="طاها ایکس اس" />
+                    </div>
+                    <h1 class="display-3 fw-bold text-gradient mb-3">
+                        <img width="50" height="50" src="https://img.icons8.com/3d-fluency/94/banana.png" class="floating-banana" alt="banana" loading="eager" />
+                        طاها ایکس اس
+                        <img width="50" height="50" src="https://img.icons8.com/3d-fluency/94/banana.png" class="floating-banana" alt="banana" loading="eager" />
+                    </h1>
+                    <p class="lead text-light opacity-75 mb-4">به دنیای گیمینگ، استریم و هیجان خوش آمدید! هر روز با استریم‌های خفن و موز‌دار 🍌</p>
+                    <div class="d-flex justify-content-center gap-3">
+                        <a href="#live" class="btn btn-warning btn-lg fw-bold rounded-pill px-5 shadow">مشاهده لایو</a>
+                        <a href="#about" class="btn btn-outline-warning btn-lg fw-bold rounded-pill px-5">بیوگرافی</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="live" class="py-5">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2 class="display-5 fw-bold text-gradient">پخش زنده Aparat</h2>
+                <p class="text-secondary">اگر الان استریم باشم همینجا می‌تونی ببینی!</p>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-10" data-aos="flip-down" data-aos-duration="1000">
+                    <div class="glass-card p-3">
+                        <div class="h_iframe-aparat_embed_frame">
+                            <span style="display: block; padding-top: 57%"></span>
+                            <iframe scrolling="no" allowFullScreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" src="https://www.aparat.com/embed/live/Tahaxs128"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-5">
+        <div class="container">
+            <div class="glass-card p-5" data-aos="fade-right" data-aos-duration="1200">
+                <div class="row align-items-center">
+                    <div class="col-lg-7">
+                        <h2 class="fw-bold text-gradient mb-4 fs-1">درباره طاها ایکس اس</h2>
+                        <p class="fs-5 leading-relaxed text-light opacity-75">
+                            سلام بچه ها! من طاها هستم، یکی از استریمرهای آپارات که عاشق گیم، خنده و ساختن لحظات خفن کنار شماهام. تو این کانال قراره با هم انواع بازی‌های روز رو بریم، چالشی بریم و کلی انرژی مثبت رد و بدل کنیم.
+                        </p>
+                        <p class="fs-5 text-warning">
+                            «قانون شماره یک استریم: موز رو فراموش نکن! 🍌»
+                        </p>
+                    </div>
+                    <div class="col-lg-5 text-center mt-4 mt-lg-0" data-aos="zoom-in">
+                        <img width="180" height="180" src="https://img.icons8.com/3d-fluency/94/banana.png" class="floating-banana" alt="banana" loading="lazy" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="news" class="py-5">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <div class="d-flex justify-content-center align-items-center gap-3">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20 2H4C2.9 2 2 2.9 2 4V16C2 17.1 2.9 18 4 18H8L12 22L16 18H20C21.1 18 22 17.1 22 16V4C22 2.9 21.1 2 20 2ZM20 16H15.17L12 19.17L8.83 16H4V4H20V16ZM6 6H18V8H6V6ZM6 10H16V12H6V10Z" fill="#ffcc00"/>
+                    </svg>
+                    <h2 class="display-5 fw-bold text-gradient m-0">آخرین اخبار و اطلاعات</h2>
+                </div>
+                <p class="text-secondary">جدیدترین رویدادها و اطلاعیه‌های کانال</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4" data-aos="zoom-in-up" data-aos-delay="100">
+                    <div class="news-card h-100">
+                        <div class="icon-wrapper">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                            </svg>
+                        </div>
+                        <h5 class="card-title">🚀 سایت ساخته شد</h5>
+                        <p class="card-text">سایت رسمی طاها ایکس اس راه‌اندازی شد. از این پس اخبار و اطلاعیه‌ها رو اینجا دنبال کن!</p>
+                        <span class="badge bg-warning text-dark">۱۴۰۵/۰۲/۰۱</span>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="zoom-in-up" data-aos-delay="200">
+                    <div class="news-card h-100">
+                        <div class="icon-wrapper">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
+                            </svg>
+                        </div>
+                        <h5 class="card-title">🔊 ایلیا صدا کلفت بن شد!</h5>
+                        <p class="card-text">ایلیا صدا کلفت ملقب به ایلیا تسترون امروز بعد از سال‌ها ۱۵ دقیقه بن شد!</p>
+                        <span class="badge bg-warning text-dark">۱۴۰۵/۰۲/۰۱</span>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="zoom-in-up" data-aos-delay="300">
+                    <div class="news-card h-100">
+                        <div class="icon-wrapper">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                            </svg>
+                        </div>
+                        <h5 class="card-title">👑 ادمین‌های برتر</h5>
+                        <p class="card-text">دایی گاسم و دایی حیدر بهترین ادمین‌های طاها هستند و طاها آن‌ها را الگوی بقیه می‌گذارد.</p>
+                        <span class="badge bg-warning text-dark">۱۴۰۵/۰۲/۰۱</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="schedule" class="py-5">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2 class="display-5 fw-bold text-gradient">برنامه زمانی استریم‌ها</h2>
+                <p class="text-secondary">هر روز در دو شیفت همراه شما هستیم</p>
+            </div>
+            <div class="row g-4 justify-content-center">
+                <div class="col-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="0">
+                    <div class="glass-card schedule-card p-4 text-center">
+                        <div class="schedule-icon">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/>
+                            </svg>
+                        </div>
+                        <h4 class="fw-bold mb-3">شنبه</h4>
+                        <span class="badge bg-warning text-dark d-block mb-2 p-2">ظهر: ۱۲:۰۰ الی ۱۵:۰۰</span>
+                        <span class="badge bg-dark border border-warning text-warning d-block p-2">شب: ۲۰:۰۰ الی ۲۲:۰۰</span>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+                    <div class="glass-card schedule-card p-4 text-center">
+                        <div class="schedule-icon">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/>
+                            </svg>
+                        </div>
+                        <h4 class="fw-bold mb-3">یکشنبه</h4>
+                        <span class="badge bg-warning text-dark d-block mb-2 p-2">ظهر: ۱۲:۰۰ الی ۱۵:۰۰</span>
+                        <span class="badge bg-dark border border-warning text-warning d-block p-2">شب: ۲۰:۰۰ الی ۲۲:۰۰</span>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+                    <div class="glass-card schedule-card p-4 text-center">
+                        <div class="schedule-icon">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/>
+                            </svg>
+                        </div>
+                        <h4 class="fw-bold mb-3">دوشنبه</h4>
+                        <span class="badge bg-warning text-dark d-block mb-2 p-2">ظهر: ۱۲:۰۰ الی ۱۵:۰۰</span>
+                        <span class="badge bg-dark border border-warning text-warning d-block p-2">شب: ۲۰:۰۰ الی ۲۲:۰۰</span>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+                    <div class="glass-card schedule-card p-4 text-center">
+                        <div class="schedule-icon">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/>
+                            </svg>
+                        </div>
+                        <h4 class="fw-bold mb-3">سه‌شنبه</h4>
+                        <span class="badge bg-warning text-dark d-block mb-2 p-2">ظهر: ۱۲:۰۰ الی ۱۵:۰۰</span>
+                        <span class="badge bg-dark border border-warning text-warning d-block p-2">شب: ۲۰:۰۰ الی ۲۲:۰۰</span>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="400">
+                    <div class="glass-card schedule-card p-4 text-center">
+                        <div class="schedule-icon">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/>
+                            </svg>
+                        </div>
+                        <h4 class="fw-bold mb-3">چهارشنبه</h4>
+                        <span class="badge bg-warning text-dark d-block mb-2 p-2">ظهر: ۱۲:۰۰ الی ۱۵:۰۰</span>
+                        <span class="badge bg-dark border border-warning text-warning d-block p-2">شب: ۲۰:۰۰ الی ۲۲:۰۰</span>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="500">
+                    <div class="glass-card schedule-card p-4 text-center">
+                        <div class="schedule-icon">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/>
+                            </svg>
+                        </div>
+                        <h4 class="fw-bold mb-3">پنج‌شنبه</h4>
+                        <span class="badge bg-warning text-dark d-block mb-2 p-2">ظهر: ۱۲:۰۰ الی ۱۵:۰۰</span>
+                        <span class="badge bg-dark border border-warning text-warning d-block p-2">شب: ۲۰:۰۰ الی ۲۲:۰۰</span>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="600">
+                    <div class="glass-card schedule-card p-4 text-center">
+                        <div class="schedule-icon">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/>
+                            </svg>
+                        </div>
+                        <h4 class="fw-bold mb-3">جمعه</h4>
+                        <span class="badge bg-warning text-dark d-block mb-2 p-2">ظهر: ۱۲:۰۰ الی ۱۵:۰۰</span>
+                        <span class="badge bg-dark border border-warning text-warning d-block p-2">شب: ۲۰:۰۰ الی ۲۲:۰۰</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="videos" class="py-5">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2 class="display-5 fw-bold text-gradient">آخرین ویدیوها</h2>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="glass-card p-2">
+                        <div class="h_iframe-aparat_embed_frame">
+                            <span style="display: block; padding-top: 57%;"></span>
+                            <iframe src="https://www.aparat.com/video/video/embed/videohash/neif7k3/vt/frame" allowFullScreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="glass-card p-2">
+                        <div class="h_iframe-aparat_embed_frame">
+                            <span style="display: block; padding-top: 57%;"></span>
+                            <iframe src="https://www.aparat.com/video/video/embed/videohash/tlinj19/vt/frame" allowFullScreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="glass-card p-2">
+                        <div class="h_iframe-aparat_embed_frame">
+                            <span style="display: block; padding-top: 57%;"></span>
+                            <iframe src="https://www.aparat.com/video/video/embed/videohash/igz551s/vt/frame" allowFullScreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="setup" class="py-5">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2 class="display-5 fw-bold text-gradient">ستاپ طاها ایکس اس</h2>
+                <p class="text-secondary">تجهیزاتی که باهاشون استریم می‌کنیم</p>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-10" data-aos="zoom-out-up" data-aos-duration="1000">
+                    <div class="glass-card p-3 setup-img-wrapper">
+                        <img src="Setup.png" alt="ستاپ طاها" class="img-fluid rounded-4" loading="lazy" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="donation" class="py-5 donation-section">
+        <div class="container position-relative" style="z-index: 1;">
+            <div class="row justify-content-center">
+                <div class="col-lg-8" data-aos="flip-up" data-aos-duration="1000">
+                    <div class="glass-card p-5 text-center position-relative overflow-hidden">
+                        <div class="floating-arrows">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 4L12 20M12 20L18 14M12 20L6 14" stroke="#ffcc00" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 4L12 20M12 20L18 14M12 20L6 14" stroke="#ff9900" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <div class="position-relative" style="z-index: 2;">
+                            <div class="d-flex justify-content-center align-items-center gap-3 mb-3">
+                                <img width="70" height="70" src="https://img.icons8.com/3d-fluency/94/banana.png" alt="banana" class="floating-banana" />
+                                <h2 class="display-4 fw-bold text-gradient mb-0">آب دستته بزار زمین همین حالا</h2>
+                                <img width="70" height="70" src="https://img.icons8.com/3d-fluency/94/banana.png" alt="banana" class="floating-banana" style="animation-delay: 1s;" />
+                            </div>
+                            <p class="fs-3 text-warning fw-bold mb-4">
+                                🍌 همین الان سریع داش طاها رو دونیت کن و گرنه خودم کارتتو برمیدارم بچه خوشگل 😎
+                            </p>
+                            <p class="text-light opacity-75 mb-4">
+                                با حمایت مالی خودت، به من انرژی می‌دی تا استریم‌های بهتر و خفن‌تری داشته باشیم.
+                                هر دونیت کوچیک، یه موز بزرگ برای من! 🍌
+                            </p>
+                            <a href="https://donofa.ir/TAHAXS128" target="_blank" class="donation-btn">
+                                <i class="fas fa-heart me-2" style="color: #ff2d55;"></i>
+                                حمایت مالی (دونیت)
+                                <i class="fas fa-arrow-left me-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="glass-card text-center container">
+        <div class="d-flex justify-content-center align-items-center gap-2 mb-3">
+            <img width="35" height="35" src="https://img.icons8.com/3d-fluency/94/banana.png" alt="banana" loading="lazy" />
+            <span class="fw-bold fs-4 text-gradient">TAHA XS</span>
+            <img width="35" height="35" src="https://img.icons8.com/3d-fluency/94/banana.png" alt="banana" loading="lazy" />
+        </div>
+        <p class="text-secondary mb-3">تمامی حقوق برای طاها ایکس اس محفوظ است © ۲۰۲۶</p>
+        <div class="d-flex justify-content-center gap-3">
+            <a href="#" class="btn btn-outline-warning rounded-circle"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="btn btn-outline-warning rounded-circle"><i class="fab fa-telegram"></i></a>
+            <a href="#" class="btn btn-outline-warning rounded-circle"><i class="fab fa-youtube"></i></a>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js">
+    </script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js">
+    </script>
+    <script>
+        AOS.init({
+            once: true,
+            duration: 800
+        });
+    </script>
+</body>
+</html>
