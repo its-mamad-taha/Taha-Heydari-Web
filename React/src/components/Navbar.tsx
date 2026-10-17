@@ -32,7 +32,7 @@ export default function Navbar() {
 
   return (
     <>
-      {/* FIXED WRAPPER — always centered horizontally */}
+
       <div className="fixed top-4 inset-x-0 z-50 flex justify-center px-4 pointer-events-none">
         {/* Desktop / Tablet nav */}
         <nav
