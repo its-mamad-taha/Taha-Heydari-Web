@@ -9,7 +9,7 @@ export const achievements: Achievement[] = [
     location: 'Turkey',
     description:
       'Ranked #1 among all participants in this international competition.',
-    image: '/assets/img/First.png',
+    image: 'assets/img/First.png',
     variant: 'gold',
   },
   {
@@ -19,7 +19,7 @@ export const achievements: Achievement[] = [
     title: 'Talent Show 2024',
     location: 'Yasan Academy',
     description: 'Selected top 20 out of 2000+ participants, ranked #1.',
-    image: '/assets/img/First.png',
+    image: 'assets/img/First.png',
     variant: 'gold',
   },
   {
@@ -30,7 +30,7 @@ export const achievements: Achievement[] = [
     location: 'Yasan Academy',
     description:
       'Ranked #4 in the Python Minecraft challenge among many talented developers.',
-    image: '/assets/img/Fifth.png',
+    image: 'assets/img/Fifth.png',
     variant: 'silver',
   },
   {

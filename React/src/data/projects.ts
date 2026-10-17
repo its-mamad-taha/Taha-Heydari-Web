@@ -1,8 +1,5 @@
 import type { Project } from '../types';
 
-/* =========================================================
-   WOLF ECOSYSTEM — Featured (shown in WolfClient section)
-   ========================================================= */
 export const wolfFeatured: Project[] = [
   {
     id: 'wolf-client',
@@ -14,7 +11,7 @@ export const wolfFeatured: Project[] = [
     status: 'Active',
     byWolf: true,
     link: 'https://wolfclient.ir',
-    preview: { type: 'video', src: '/assets/media/Wolfclient.mp4' },
+    preview: { type: 'video', src: 'assets/media/Wolfclient.mp4' },
   },
   {
     id: 'wolf-launcher',
@@ -26,7 +23,7 @@ export const wolfFeatured: Project[] = [
     status: 'Active',
     byWolf: true,
     link: 'https://wolfclient.ir',
-    preview: { type: 'video', src: '/assets/media/WolfLancuher.mp4' },
+    preview: { type: 'video', src: 'assets/media/WolfLancuher.mp4' },
   },
   {
     id: 'wolf-website',
@@ -46,9 +43,6 @@ export const wolfFeatured: Project[] = [
   },
 ];
 
-/* =========================================================
-   OTHER PROJECTS — Made by me
-   ========================================================= */
 export const otherProjects: Project[] = [
   {
     id: 'slade',
@@ -69,10 +63,10 @@ export const otherProjects: Project[] = [
     tagline: 'Interactive Web Experience',
     description: 'Taha Xs — content creator & streamer.',
     status: 'Live',
-    link: '/assets/Tahaxs/index.html',
+    link: 'assets/Tahaxs/index.html',
     preview: {
       type: 'iframe',
-      src: '/assets/Tahaxs/index.html',
+      src: 'assets/Tahaxs/index.html',
       title: 'Tahaxs',
     },
   },
@@ -82,10 +76,10 @@ export const otherProjects: Project[] = [
     tagline: 'Game Development',
     description: 'A custom HTML / CSS / JS game project.',
     status: 'Live',
-    link: '/assets/UniversGame/index.html',
+    link: 'assets/UniversGame/index.html',
     preview: {
       type: 'iframe',
-      src: '/assets/UniversGame/index.html',
+      src: 'assets/UniversGame/index.html',
       title: 'Univers Game',
     },
   },

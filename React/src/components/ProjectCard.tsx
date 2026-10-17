@@ -1,5 +1,4 @@
 import { ArrowUpRight, Crown } from 'lucide-react';
-import { useState } from 'react';
 import type { Project } from '../types';
 import GlassCard from './GlassCard';
 import LazyVideo from './LazyVideo';
@@ -61,7 +60,7 @@ interface Props {
 }
 
 export default function ProjectCard({ project, size = 'default' }: Props) {
-  const [imgError] = useState(false);
+  
   const hasLink = Boolean(project.link);
   const aspect = size === 'wide' ? 'aspect-[16/10]' : 'aspect-[16/11]';
 

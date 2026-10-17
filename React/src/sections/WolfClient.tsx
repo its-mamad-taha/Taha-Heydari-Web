@@ -9,7 +9,6 @@ import { wolfFeatured } from '../data/projects';
 const tech = ['Java', 'Rust', 'LWJGL', 'Performance', 'Native Engine'];
 
 export default function WolfClient() {
-  const primary = wolfFeatured[0];
   const others = wolfFeatured.slice(1);
 
   return (
@@ -24,7 +23,6 @@ export default function WolfClient() {
           />
         </Reveal>
 
-        {/* PRIMARY — Wolf Client */}
         <Reveal>
           <GlassCard hover={false} className="overflow-hidden mb-6 lg:mb-8">
             <div className="relative flex flex-col sm:flex-row items-start sm:items-center gap-5 px-6 sm:px-8 lg:px-10 py-6 border-b border-white/[0.06]">
@@ -68,7 +66,7 @@ export default function WolfClient() {
                 preload="none"
                 className="absolute inset-0 h-full w-full object-cover"
               >
-                <source src="/assets/media/Wolfclient.mp4" type="video/mp4" />
+                <source src="assets/media/Wolfclient.mp4" type="video/mp4" />
               </video>
               <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-bg via-transparent to-transparent" />
             </div>
@@ -139,7 +137,6 @@ export default function WolfClient() {
           </GlassCard>
         </Reveal>
 
-        {/* WOLF LAUNCHER + WOLF WEBSITE — big cards */}
         <div className="grid md:grid-cols-2 gap-6 lg:gap-7">
           {others.map((p, i) => (
             <Reveal key={p.id} delay={i * 100}>
