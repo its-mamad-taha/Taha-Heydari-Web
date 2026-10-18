@@ -1,0 +1,13 @@
+{
+  "users": {
+    "its_mamad_taha": "admin.png",
+    "WolfDeveloper": "dragon.png",
+    "exampleUser": "NONE"
+  },
+  "capes": [
+    "admin.png",
+    "dragon.png",
+    "wolf.png",
+    "darkside.png"
+  ]
+}
