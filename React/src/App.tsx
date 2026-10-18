@@ -6,6 +6,7 @@ import CurrentlyBuilding from './sections/CurrentlyBuilding';
 import WolfClient from './sections/WolfClient';
 import TechStack from './sections/TechStack';
 import Journey from './sections/Journey';
+import BirthdayPopup from './components/BirthdayPopup';
 import Setup from './sections/Setup';
 import Achievements from './sections/Achievements';
 
